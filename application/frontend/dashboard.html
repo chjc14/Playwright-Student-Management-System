@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <header class="dashboard-header">
+            <div>
+                <h1>Student Management System</h1>
+                <p>Administrator Dashboard</p>
+            </div>
+
+            <button id="logoutButton">Logout</button>
+        </header>
+
+        <main class="dashboard-content">
+
+            <section class="welcome-section">
+                <h2>Welcome, Administrator!</h2>
+                <p>Manage student records from this dashboard.</p>
+            </section>
+
+            <section class="stats-section">
+
+                <div class="stat-card">
+                    <h3>Total Students</h3>
+                    <p id="totalStudents">0</p>
+                </div>
+
+            </section>
+
+            <section class="student-section">
+
+                <div class="section-header">
+                    <h2>Student Records</h2>
+                    <button id="addStudentButton">Add Student</button>
+                </div>
+
+                <div class="search-section">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search by name or roll number"
+                    >
+
+                    <button id="searchButton">Search</button>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Roll Number</th>
+                                <th>Email</th>
+                                <th>Department</th>
+                                <th>Year</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="studentTableBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+        <!-- Add Student Modal -->
+
+    <div id="addStudentModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Add Student</h2>
+                <button id="closeModalButton" class="close-button">&times;</button>
+            </div>
+
+            <form id="addStudentForm">
+
+                <label for="studentName">Name</label>
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter student name"
+                    required
+                >
+
+                <label for="studentRollNumber">Roll Number</label>
+                <input
+                    type="text"
+                    id="studentRollNumber"
+                    placeholder="Enter roll number"
+                    required
+                >
+
+                <label for="studentEmail">Email</label>
+                <input
+                    type="email"
+                    id="studentEmail"
+                    placeholder="Enter email"
+                    required
+                >
+
+                <label for="studentDepartment">Department</label>
+                <select id="studentDepartment" required>
+                    <option value="">Select department</option>
+                    <option value="CSE">Computer Science and Engineering</option>
+                    <option value="ECE">Electronics and Communication Engineering</option>
+                    <option value="EEE">Electrical and Electronics Engineering</option>
+                    <option value="MECH">Mechanical Engineering</option>
+                    <option value="CIVIL">Civil Engineering</option>
+                </select>
+
+                <label for="studentYear">Year</label>
+                <select id="studentYear" required>
+                    <option value="">Select year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                </select>
+
+                <div class="modal-buttons">
+                    <button type="button" id="cancelStudentButton">
+                        Cancel
+                    </button>
+
+                    <button type="submit" id="saveStudentButton">
+                        Add Student
+                    </button>
+                </div>
+
+                <p id="studentMessage"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+        <!-- Edit Student Modal -->
+
+    <div id="editStudentModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Edit Student</h2>
+                <button id="closeEditModalButton" class="close-button">&times;</button>
+            </div>
+
+            <form id="editStudentForm">
+
+                <label for="editStudentName">Name</label>
+                <input
+                    type="text"
+                    id="editStudentName"
+                    placeholder="Enter student name"
+                    required
+                >
+
+                <label for="editStudentRollNumber">Roll Number</label>
+                <input
+                    type="text"
+                    id="editStudentRollNumber"
+                    placeholder="Enter roll number"
+                    required
+                >
+
+                <label for="editStudentEmail">Email</label>
+                <input
+                    type="email"
+                    id="editStudentEmail"
+                    placeholder="Enter email"
+                    required
+                >
+
+                <label for="editStudentDepartment">Department</label>
+                <select id="editStudentDepartment" required>
+                    <option value="">Select department</option>
+                    <option value="CSE">Computer Science and Engineering</option>
+                    <option value="ECE">Electronics and Communication Engineering</option>
+                    <option value="EEE">Electrical and Electronics Engineering</option>
+                    <option value="MECH">Mechanical Engineering</option>
+                    <option value="CIVIL">Civil Engineering</option>
+                </select>
+
+                <label for="editStudentYear">Year</label>
+                <select id="editStudentYear" required>
+                    <option value="">Select year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                </select>
+
+                <div class="modal-buttons">
+
+                    <button type="button" id="cancelEditStudentButton">
+                        Cancel
+                    </button>
+
+                    <button type="submit" id="saveEditStudentButton">
+                        Save Changes
+                    </button>
+
+                </div>
+
+                <p id="editStudentMessage"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
