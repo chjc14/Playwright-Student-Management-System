@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('TC01 - Open Login Page', async ({ page }) => {
     await page.goto('http://localhost:3000');
 
-    await expect(page).toHaveTitle('Wrong Title');
+    await expect(page).toHaveTitle('Student Management System');
 
     await expect(page.getByRole('heading', {
         name: 'Student Management System'
